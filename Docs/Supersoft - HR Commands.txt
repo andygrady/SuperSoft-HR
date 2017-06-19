@@ -3,7 +3,11 @@ SuperSoft HR Commands
 
 All commands start with SYS HR, where HR is $E902 
 
-Set Mode.......: n			where n is 0 to 7
+Set Mode.......: n			where n is 0 (Off)
+                              n is 1 (HR Board RAM only)
+                              n is 2 (Blanks both Screens but can still write to normal screen and draw High Res Graphics)
+                              n is 5 (Normal Screen + High Res Graphics from HR Board)
+                              n is 7 (High Res Graphics Only - no text from Normal screen)
 
 Set Point......: SP,X,Y  		(white)
 Reset Point....: RP,X,Y  		(black)
@@ -22,6 +26,9 @@ Map Erase......: ME,X,Y			(black)
 Clear..........: C			(black)
 Invert.........: I			(xor)
 
+Text...........: P,Addr (Addr = decimal starting address of the character rom on the HR board eg $A000 or custom table in ram. 
+                         Must be set first before writing text to the High Res Screen)
+                         
 Text...........: TNH,"string",X,Y	(text,normal,horizontal)
 Text...........: TNV,"string",X,Y	(text,normal,vertical)
 Text...........: TRH,"string",X,Y	(text,reverse,horizontal)
